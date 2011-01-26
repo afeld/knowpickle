@@ -29,3 +29,10 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+group :development, :test do
+  gem 'ruby-debug'
+  gem 'rspec', '~> 2.4.0'
+  gem 'rspec-rails'
+  gem 'webrat', '~> 0.7.3'
+end
