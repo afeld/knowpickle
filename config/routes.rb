@@ -1,4 +1,6 @@
 Knowpickle::Application.routes.draw do
+  resources :resources
+
   resources :topics
 
   devise_for :users
