@@ -9,6 +9,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 gem 'haml', '~> 3.0.25'
 gem 'devise', '~> 1.1.5'
+gem 'default_value_for', '~> 1.0.1'
 
 # Use unicorn as the web server
 # gem 'unicorn'
