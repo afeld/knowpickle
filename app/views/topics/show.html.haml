@@ -3,19 +3,23 @@
 = render :partial => 'resource_form'
 %h2 Resources
 %ul
-  - @topic.resources.each do |resource|
-    %li
-      %h3
-        = link_to resource, resource
-      .site
-        = link_to resource.site, "http://#{resource.site}"
-      .excerpt
-        = resource.excerpt
-      .level
-        = resource.level
-      .rating
-        Average rating:
-        = resource.average_rating
+  - if @topic.resources.empty?
+    None here.
+    = link_to 'Add some!', new_resource_path + "?topic_id=#{@topic.id}"
+  - else
+    - @topic.resources.each do |resource|
+      %li
+        %h3
+          = link_to resource, resource
+        .site
+          = link_to resource.site, "http://#{resource.site}"
+        .excerpt
+          = resource.excerpt
+        .level
+          = resource.level
+        .rating
+          Average rating:
+          = resource.average_rating
 
 = link_to 'Suggest a new Topic', new_topic_path
 |

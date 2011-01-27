@@ -24,7 +24,9 @@ class ResourcesController < ApplicationController
   # GET /resources/new
   # GET /resources/new.xml
   def new
-    @resource = Resource.new(params)
+    opts = {}
+    opts[:topic_id] = params['topic_id'].to_i if params['topic_id']
+    @resource = Resource.new(opts)
 
     respond_to do |format|
       format.html # new.html.erb
