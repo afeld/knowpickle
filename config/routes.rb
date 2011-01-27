@@ -1,4 +1,6 @@
 Knowpickle::Application.routes.draw do
+  resources :reviews
+
   resources :resources
 
   resources :topics
