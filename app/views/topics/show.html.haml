@@ -1,0 +1,17 @@
+%h1
+  = @topic.name
+%h2 Resources
+%ul
+  - @topic.resources.each do |resource|
+    %li
+      .name
+        = link_to resource, resource
+      .excerpt
+        = resource.excerpt
+      .rating
+        Average rating:
+        = resource.average_rating
+
+= link_to 'Edit', edit_topic_path(@topic)
+|
+= link_to 'Back', topics_path
