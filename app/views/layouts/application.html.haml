@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %title Knowpickle
+    = stylesheet_link_tag :all
+    = javascript_include_tag :defaults
+    = csrf_meta_tag
+  %body
+    .wrapper
+      .header
+        = link_to 'Knowpickle', root_path
+      .nav-bar
+        %ul
+          %li
+            = link_to 'Topics', topics_path
+            %ul
+              - Topic.all.each do |topic|
+                %li
+                  = link_to topic, topic
+      .contents
+        %p.notice= notice
+        %p.alert= alert
+        = yield
