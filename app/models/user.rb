@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :created_resources, :class_name => 'Resource', :foreign_key => 'creator_id', :dependent => :nullify
+  has_many :created_resources, :class_name => 'Resource', :foreign_key => 'contributor_id', :dependent => :nullify
   has_many :reviews, :foreign_key => 'reviewer_id', :dependent => :nullify
   
   # Include default devise modules. Others available are:

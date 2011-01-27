@@ -43,7 +43,7 @@ class ResourcesController < ApplicationController
   # POST /resources.xml
   def create
     @resource = Resource.new(params[:resource])
-    @resource.creator = current_user
+    @resource.contributor = current_user
 
     respond_to do |format|
       if @resource.save

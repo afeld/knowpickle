@@ -6,7 +6,7 @@ describe "resources/new.html.erb" do
       :name => "MyString",
       :excerpt => "MyText",
       :url => "MyString",
-      :creator_id => 1,
+      :contributor_id => 1,
       :topic_id => 1
     ).as_new_record)
   end
@@ -19,7 +19,7 @@ describe "resources/new.html.erb" do
       assert_select "input#resource_name", :name => "resource[name]"
       assert_select "textarea#resource_excerpt", :name => "resource[excerpt]"
       assert_select "input#resource_url", :name => "resource[url]"
-      assert_select "input#resource_creator_id", :name => "resource[creator_id]"
+      assert_select "input#resource_contributor_id", :name => "resource[contributor_id]"
       assert_select "input#resource_topic_id", :name => "resource[topic_id]"
     end
   end

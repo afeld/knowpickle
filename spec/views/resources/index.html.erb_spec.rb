@@ -7,14 +7,14 @@ describe "resources/index.html.erb" do
         :name => "Name",
         :excerpt => "MyText",
         :url => "Url",
-        :creator_id => 1,
+        :contributor_id => 1,
         :topic_id => 1
       ),
       stub_model(Resource,
         :name => "Name",
         :excerpt => "MyText",
         :url => "Url",
-        :creator_id => 1,
+        :contributor_id => 1,
         :topic_id => 1
       )
     ])
