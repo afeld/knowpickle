@@ -1,7 +1,7 @@
-%h1 Listing topics
+%h1 Topics
 %ul
   - @topics.each do |topic|
     %li
       = link_to topic.name, topic
 %br
-= link_to 'New Topic', new_topic_path
+= link_to 'Suggest a new Topic', new_topic_path

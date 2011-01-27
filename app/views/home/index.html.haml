@@ -1,1 +1,7 @@
-Welcome
+Welcome to Knowpickle!
+%h1 Topics
+%ul
+  - @topics.each do |topic|
+    %li
+      = link_to topic.name, topic
+      

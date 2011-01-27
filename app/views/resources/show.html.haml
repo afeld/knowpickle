@@ -6,7 +6,7 @@
   = link_to @resource.name, @resource.url
 %p
   %b Site:
-  = @resource.site
+  = link_to @resource.site, "http://#{@resource.site}"
 %p
   %b Level:
   = @resource.level

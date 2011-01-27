@@ -24,7 +24,7 @@ class ResourcesController < ApplicationController
   # GET /resources/new
   # GET /resources/new.xml
   def new
-    @resource = Resource.new
+    @resource = Resource.new(params)
 
     respond_to do |format|
       format.html # new.html.erb
