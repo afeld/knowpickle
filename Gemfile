@@ -34,6 +34,7 @@ gem 'devise', '~> 1.1.5'
 # end
 
 group :development, :test do
+  gem 'mongrel'
   gem 'ruby-debug'
   gem 'rspec', '~> 2.4.0'
   gem 'rspec-rails'
