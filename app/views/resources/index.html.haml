@@ -13,9 +13,9 @@
     %tr
       %td= resource.name
       %td= resource.excerpt
-      %td= resource.url
+      %td= link_to resource.url, resource.url
       %td= resource.creator_id
-      %td= resource.topic_id
+      %td= link_to resource.topic, resource.topic
       %td= link_to 'Show', resource
       %td= link_to 'Edit', edit_resource_path(resource)
       %td= link_to 'Destroy', resource, :confirm => 'Are you sure?', :method => :delete
