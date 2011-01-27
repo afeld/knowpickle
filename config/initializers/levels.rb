@@ -1,0 +1,1 @@
+LEVELS = ['Beginner', 'Intermediate', 'Advanced']
