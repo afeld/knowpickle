@@ -10,4 +10,9 @@ class Resource < ActiveRecord::Base
   def average_rating
     self.reviews.average :rating
   end
+  
+  def site
+    # TODO make new model for Site
+    URI.parse(self.url).host || self.url
+  end
 end

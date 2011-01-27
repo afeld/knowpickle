@@ -4,8 +4,10 @@
 %ul
   - @topic.resources.each do |resource|
     %li
-      .name
+      %h3
         = link_to resource, resource
+      .site
+        = link_to resource.site, "http://#{resource.site}"
       .excerpt
         = resource.excerpt
       .rating

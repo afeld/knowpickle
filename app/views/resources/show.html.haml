@@ -1,15 +1,17 @@
 %p
-  %b Name:
+  %b Topic:
+  = link_to @resource.topic, @resource.topic
+
+%h1
   = link_to @resource.name, @resource.url
+%p
+  %b Site:
+  = @resource.site
 %p
   %b Excerpt:
   = @resource.excerpt
 %p
   %b Creator:
   = @resource.creator_id
-%p
-  %b Topic:
-  = @resource.topic
+
 = link_to 'Edit', edit_resource_path(@resource)
-|
-= link_to 'Back', resources_path
