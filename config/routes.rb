@@ -1,4 +1,6 @@
 Knowpickle::Application.routes.draw do
+  resources :topics
+
   devise_for :users
 
   # The priority is based upon order of creation:
