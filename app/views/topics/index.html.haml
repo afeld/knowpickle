@@ -1,7 +1,4 @@
 %h1 Topics
-%ul
-  - @topics.each do |topic|
-    %li
-      = link_to topic.name, topic
+= render :partial => 'shared/topics_tree'
 %br
 = link_to 'Suggest a new Topic', new_topic_path
