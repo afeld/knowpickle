@@ -7,8 +7,9 @@ class Resource < ActiveRecord::Base
     self.name
   end
   
-  def average_rating
-    self.reviews.average :rating
+  def update_average_rating!
+    self.average_rating = self.reviews.average :rating
+    self.save!
   end
   
   def site

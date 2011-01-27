@@ -7,7 +7,7 @@
     None here.
     = link_to 'Add some!', new_resource_path + "?topic_id=#{@topic.id}"
   - else
-    - @topic.resources.each do |resource|
+    - @resources.each do |resource|
       %li
         %h3
           = link_to resource, resource

@@ -1,4 +1,4 @@
 %ul
-  - (@topics || Topic.all).each do |topic|
+  - Topic.all.each do |topic|
     %li
-      = link_to topic, topic
+      = link_to "#{topic} (#{topic.resources.size})", topic
