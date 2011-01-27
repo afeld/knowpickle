@@ -1,5 +1,6 @@
 %h1
   = @topic.name
+= render :partial => 'resource_form'
 %h2 Resources
 %ul
   - @topic.resources.each do |resource|
@@ -16,6 +17,6 @@
         Average rating:
         = resource.average_rating
 
-= link_to 'Edit', edit_topic_path(@topic)
+= link_to 'Suggest a new Topic', new_topic_path
 |
-= link_to 'Back', topics_path
+= link_to 'See all Topics', topics_path
