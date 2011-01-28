@@ -11,6 +11,8 @@ gem 'haml', '~> 3.0.25'
 gem 'devise', '~> 1.1.5'
 gem 'default_value_for', '~> 1.0.1'
 
+gem 'jquery-rails', '~> 0.2.6'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
