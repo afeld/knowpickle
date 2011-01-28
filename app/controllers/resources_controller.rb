@@ -63,10 +63,22 @@ class ResourcesController < ApplicationController
 
     respond_to do |format|
       if @resource.update_attributes(params[:resource])
-        format.html { redirect_to(@resource, :notice => 'Resource was successfully updated.') }
+        format.html {
+          if request.xhr?
+            render :text => params[:resource].values.first
+          else
+            redirect_to(@resource, :notice => 'Resource was successfully updated.')
+          end
+        }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.html {
+          if request.xhr?
+            render :text => @resource[params[:resource].keys.first]
+          else
+            render :action => "edit"
+          end
+        }
         format.xml  { render :xml => @resource.errors, :status => :unprocessable_entity }
       end
     end

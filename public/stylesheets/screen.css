@@ -1,0 +1,4 @@
+.toggle-edit.active,
+.edit.active {
+  border: 1px solid black;
+}
