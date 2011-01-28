@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  ROLES = %w[admin moderator contributor banned]
+  default_value_for :role, 'contributor'
+  
   has_many :created_resources, :class_name => 'Resource', :foreign_key => 'contributor_id', :dependent => :nullify
   has_many :reviews, :foreign_key => 'reviewer_id', :dependent => :nullify
   
@@ -9,4 +12,8 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+  
+  def admin?
+    self.role == 'admin'
+  end
 end
