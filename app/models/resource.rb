@@ -31,8 +31,6 @@ class Resource < ActiveRecord::Base
           # it's a redirect, so update the URL
           self.url = response.headers[:location]
           response.follow_redirection(request, result, &block)
-        when 404
-          errors.add(:url, "cannot be found")
         else
           response.return!(request, result, &block)
         end
@@ -41,7 +39,7 @@ class Resource < ActiveRecord::Base
       errors.add(:url, 'is invalid')
     end
     
-    if end_response and self.name.empty?
+    if end_response and self.name.blank?
       doc = Nokogiri::HTML(end_response)
       title = doc.xpath('//head/title[1]').first.text rescue nil
       self.name = title
