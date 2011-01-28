@@ -1,12 +1,14 @@
-:javascript
-  $(function(){
-    makeEditable('resource');
-  });
+- if can? :update, @resource
+  :javascript
+    $(function(){
+      makeEditable('resource');
+    });
 %p
   %b Topic:
   = link_to @resource.topic, @resource.topic
 
-= link_to 'Toggle edit', '#', :class => 'toggle-edit'
+- if can? :update, @resource
+  = link_to 'Toggle edit', '#', :class => 'toggle-edit'
 %h1.edit#name= @resource.name
 %p
   = link_to @resource.url, @resource.url
