@@ -10,6 +10,12 @@
     .wrapper
       .header
         = link_to 'Knowpickle', root_path
+      .user-actions
+        - if user_signed_in?
+          = link_to 'My account', my_account_path
+          = link_to 'Sign out', logout_path
+        - else
+          = link_to 'Sign in', login_path
       .nav-bar
         %ul
           %li
