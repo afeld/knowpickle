@@ -5,6 +5,8 @@ class Topic < ActiveRecord::Base
   
   has_many :resources, :dependent => :nullify
   
+  validates :name, :presence => true
+  
   def to_s
     self.name
   end

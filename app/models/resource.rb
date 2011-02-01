@@ -3,7 +3,8 @@ class Resource < ActiveRecord::Base
   belongs_to :topic
   belongs_to :contributor, :class_name => 'User'
   
-  validate :url, :presence => true # TODO this won't always be the case
+  validates :name, :presence => true
+  validates :url, :presence => true # TODO this won't always be the case
   after_validation :validate_url_and_fetch_title
   
   def to_s
