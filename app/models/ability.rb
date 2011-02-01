@@ -13,6 +13,7 @@ class Ability
       cannot :read, Topic, :enabled => false
     end
     
+    can :create, Topic
     can :manage, Resource, :contributor => user
     can :manage, Review, :reviewer => user
     

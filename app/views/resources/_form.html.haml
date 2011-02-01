@@ -10,7 +10,7 @@
   .field
     = f.label :topic_id
     %br
-    = f.collection_select :topic_id, Topic.all, :id, :name
+    = f.collection_select :topic_id, Topic.enabled, :id, :name
   .field
     = f.label :name
     %br
