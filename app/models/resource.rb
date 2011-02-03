@@ -1,6 +1,6 @@
 class Resource < ActiveRecord::Base
   has_many :reviews, :dependent => :destroy
-  belongs_to :topic
+  belongs_to :topic, :counter_cache => true
   belongs_to :contributor, :class_name => 'User'
   
   validates :name, :presence => true

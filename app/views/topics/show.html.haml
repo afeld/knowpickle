@@ -3,7 +3,7 @@
 = render :partial => 'resource_form'
 %h2 Resources
 %ul
-  - if @topic.resources.empty?
+  - if @topic.resources_count.zero?
     None here.
     = link_to 'Add some!', new_resource_path + "?topic_id=#{@topic.id}"
   - else
