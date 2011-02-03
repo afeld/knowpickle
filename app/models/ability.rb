@@ -10,6 +10,7 @@ class Ability
       can :manage, :all
     else
       can :read, :all
+      can :manage, User, :id => user
       cannot :read, Topic, :enabled => false
     end
     

@@ -39,6 +39,12 @@ gem 'nokogiri', '~> 1.4.4'
 #   gem 'webrat'
 # end
 
+group :development do
+  # for Devise generator
+  gem 'hpricot'
+  gem 'ruby_parser'
+end
+
 group :development, :test do
   gem 'mongrel'
   gem 'ruby-debug'
