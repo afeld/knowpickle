@@ -128,6 +128,7 @@ DEPENDENCIES
   jeditable-rails (~> 0.1)
   jquery-rails (~> 0.2.6)
   mongrel
+  nokogiri (~> 1.4.4)
   rails (= 3.0.3)
   rest-client (~> 1.6.1)
   rspec (~> 2.4.0)
