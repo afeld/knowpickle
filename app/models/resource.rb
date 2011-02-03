@@ -5,7 +5,7 @@ class Resource < ActiveRecord::Base
   
   validates :name, :presence => true
   validates :url, :presence => true # TODO this won't always be the case
-  after_validation :validate_url_and_fetch_title
+  before_validation :validate_url_and_fetch_title
   
   def to_s
     self.name
