@@ -26,7 +26,13 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   # GET /reviews/new.xml
   def new
-    @review = Review.new
+    begin
+      @resource = Resource.find(params[:resource_id])
+    rescue
+      flash[:alert] = "Invalid resource"
+      redirect_to root_path and return
+    end
+    @review = Review.new(:resource => @resource)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -47,7 +53,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to(@review, :notice => 'Review was successfully created.') }
+        format.html { redirect_to(@review.resource, :notice => 'Review was successfully created.') }
         format.xml  { render :xml => @review, :status => :created, :location => @review }
       else
         format.html { render :action => "new" }
@@ -63,7 +69,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.update_attributes(params[:review])
-        format.html { redirect_to(@review, :notice => 'Review was successfully updated.') }
+        format.html { redirect_to(@review.resource, :notice => 'Review was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

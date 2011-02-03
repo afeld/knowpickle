@@ -8,7 +8,7 @@
   = link_to @resource.topic, @resource.topic
 
 - if can? :update, @resource
-  = link_to 'Toggle edit', '#', :class => 'toggle-edit'
+  = link_to 'Edit', '#', :class => 'toggle-edit'
 %h1
   = editable_field_if can?(:update, @resource), @resource, :name
 %p
@@ -20,10 +20,21 @@
   %b Level:
   = editable_field_if can?(:update, @resource), @resource, :level, :type => 'select', :data => levels_json_string, :submit => 'OK'
 %p
+  %b Average Rating:
+  = @resource.average_rating
+%p
   %b Excerpt:
   = @resource.excerpt
 %p
   %b Contributor:
   = @resource.contributor_id
 
-= link_to 'Edit', edit_resource_path(@resource)
+= link_to "Review this!", (new_review_path + "?resource_id=#{@resource.id}")
+
+.reviews
+  %ul
+    - @resource.reviews.each do |review|
+      %li
+        %b= review.rating
+        = review.comment
+  
