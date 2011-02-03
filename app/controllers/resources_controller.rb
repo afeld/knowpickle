@@ -16,6 +16,7 @@ class ResourcesController < ApplicationController
   # GET /resources/1.xml
   def show
     @resource = Resource.find(params[:id])
+    @reviews = Review.where(:resource_id => @resource).order('created_at DESC').all
 
     respond_to do |format|
       format.html # show.html.erb

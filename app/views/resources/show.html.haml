@@ -20,20 +20,20 @@
   %b Level:
   = editable_field_if can?(:update, @resource), @resource, :level, :type => 'select', :data => levels_json_string, :submit => 'OK'
 %p
-  %b Average Rating:
-  = @resource.average_rating
-%p
   %b Excerpt:
   = @resource.excerpt
 %p
   %b Contributor:
   = @resource.contributor_id
-
-= link_to "Review this!", (new_review_path + "?resource_id=#{@resource.id}")
-
 .reviews
+  %h3
+    Reviews
+  %p
+    %b Average Rating:
+    = @resource.average_rating
+    = link_to "Review this!", (new_review_path + "?resource_id=#{@resource.id}")
   %ul
-    - @resource.reviews.each do |review|
+    - @reviews.each do |review|
       %li
         %b= review.rating
         = review.comment

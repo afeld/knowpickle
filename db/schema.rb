@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110128090846) do
+ActiveRecord::Schema.define(:version => 20110203084956) do
 
   create_table "resources", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,11 @@ ActiveRecord::Schema.define(:version => 20110128090846) do
     t.float    "average_rating"
   end
 
+  add_index "resources", ["topic_id", "average_rating"], :name => "index_resources_on_topic_id_and_average_rating"
+  add_index "resources", ["topic_id", "level"], :name => "index_resources_on_topic_id_and_level"
+  add_index "resources", ["topic_id"], :name => "index_resources_on_topic_id"
+  add_index "resources", ["url"], :name => "index_resources_on_url", :unique => true
+
   create_table "reviews", :force => true do |t|
     t.integer  "reviewer_id"
     t.integer  "resource_id"
@@ -32,6 +37,10 @@ ActiveRecord::Schema.define(:version => 20110128090846) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "reviews", ["resource_id", "created_at"], :name => "index_reviews_on_resource_id_and_created_at"
+  add_index "reviews", ["resource_id", "rating"], :name => "index_reviews_on_resource_id_and_rating"
+  add_index "reviews", ["resource_id"], :name => "index_reviews_on_resource_id"
 
   create_table "topics", :force => true do |t|
     t.string   "name"
