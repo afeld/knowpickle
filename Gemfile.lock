@@ -46,6 +46,7 @@ GEM
     gem_plugin (0.2.3)
     haml (3.0.25)
     i18n (0.5.0)
+    jeditable-rails (0.1.0)
     jquery-rails (0.2.6)
       rails (~> 3.0)
       thor (~> 0.14.4)
@@ -124,6 +125,7 @@ DEPENDENCIES
   default_value_for (~> 1.0.1)
   devise (~> 1.1.5)
   haml (~> 3.0.25)
+  jeditable-rails (~> 0.1)
   jquery-rails (~> 0.2.6)
   mongrel
   rails (= 3.0.3)

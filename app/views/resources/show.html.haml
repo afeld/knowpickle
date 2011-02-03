@@ -1,7 +1,7 @@
 - if can? :update, @resource
   :javascript
     $(function(){
-      makeEditable('resource');
+      enableEdit();
     });
 %p
   %b Topic:
@@ -9,7 +9,7 @@
 
 - if can? :update, @resource
   = link_to 'Toggle edit', '#', :class => 'toggle-edit'
-%h1.edit#name= @resource.name
+%h1= editable_field_if can?(:update, @resource), @resource, :name
 %p
   = link_to @resource.url, @resource.url
 %p
