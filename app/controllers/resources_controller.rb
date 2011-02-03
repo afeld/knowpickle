@@ -45,6 +45,11 @@ class ResourcesController < ApplicationController
   # POST /resources
   # POST /resources.xml
   def create
+    existing_resource = Resource.find_by_url(params[:resource][:url])
+    if existing_resource
+      flash[:notice] = "That resource has already been added, but please give it a review!"
+      redirect_to resource_path(existing_resource) and return
+    end
     @resource = Resource.new(params[:resource])
     @resource.contributor = current_user
 
