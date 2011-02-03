@@ -10,7 +10,7 @@
   .field
     = f.label :topic_id
     %br
-    = f.collection_select :topic_id, Topic.enabled, :id, :name
+    = f.collection_select :topic_id, Topic.enabled, :id, :name, :prompt => "Select topic..."
   .field
     = f.label :name
     %br
@@ -22,7 +22,7 @@
   .field
     = f.label :level
     %br
-    = f.select :level, LEVELS
+    = f.select :level, LEVELS, :include_blank => "Select level..."
   .field
     = f.label :excerpt
     %br
