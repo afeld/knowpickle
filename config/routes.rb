@@ -3,7 +3,7 @@ Knowpickle::Application.routes.draw do
 
   resources :resources, :except => [:index, :edit]
 
-  resources :topics
+  resources :topics, :except => [:edit, :update]
   
   resources :users, :only => [:show]
 

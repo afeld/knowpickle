@@ -36,11 +36,6 @@ class TopicsController < ApplicationController
     end
   end
 
-  # GET /topics/1/edit
-  def edit
-    @topic = Topic.find(params[:id])
-  end
-
   # POST /topics
   # POST /topics.xml
   def create
@@ -52,22 +47,6 @@ class TopicsController < ApplicationController
         format.xml  { render :xml => @topic, :status => :created, :location => @topic }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @topic.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /topics/1
-  # PUT /topics/1.xml
-  def update
-    @topic = Topic.find(params[:id])
-
-    respond_to do |format|
-      if @topic.update_attributes(params[:topic])
-        format.html { redirect_to(@topic, :notice => 'Topic was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
         format.xml  { render :xml => @topic.errors, :status => :unprocessable_entity }
       end
     end
