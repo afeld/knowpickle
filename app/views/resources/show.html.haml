@@ -24,7 +24,7 @@
   = @resource.excerpt
 %p
   %b Contributor:
-  = @resource.contributor
+  = link_to @resource.contributor, user_path(@resource.contributor)
 .reviews
   %h3
     Reviews
@@ -32,9 +32,5 @@
     %b Average Rating:
     = @resource.average_rating
     = link_to "Review this!", (new_review_path + "?resource_id=#{@resource.id}")
-  %ul
-    - @reviews.each do |review|
-      %li
-        %b= review.rating
-        = review.comment
+  = render :partial => 'shared/review_list'
   

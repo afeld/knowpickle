@@ -2,3 +2,6 @@
 .edit.active {
   border: 1px solid black;
 }
+.errors {
+  color: red;
+}

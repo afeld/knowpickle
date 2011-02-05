@@ -10,5 +10,5 @@
 %ul
   - @user.created_resources.each do |resource|
     %li
-      = link_to resource.name, resource.url
+      = link_to resource.name, resource_path(resource)
       (#{link_to resource.topic, resource.topic})

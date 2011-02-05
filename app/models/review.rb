@@ -2,6 +2,8 @@ class Review < ActiveRecord::Base
   belongs_to :reviewer, :class_name => 'User'
   belongs_to :resource
   
+  validates :resource_id, :presence => true
+  validates :reviewer_id, :presence => true
   after_save :update_average_rating!
   
   private

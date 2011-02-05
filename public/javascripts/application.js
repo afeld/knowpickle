@@ -23,4 +23,25 @@ $(function() {
   $('.toggle-edit').click(function(){
     toggleEdit();
   });
+  
+  $("form.new_review[data-remote='true']")
+    .live('ajax:beforeSend', function(e, xhr, settings){
+      // TODO show a spinner
+    })
+    .live('ajax:success', function(e, data, status){
+      // TODO hide form
+      $(this).replaceWith(data);
+    })
+    .live('ajax:error', function(e, xhr, status){
+      // TODO insert errors above
+      var errorList = "<ul class='errors'>";
+      $.each(JSON.parse(xhr.responseText), function(i, error){
+        errorList += "<li>" + error + "</li>";
+      });
+      errorList += "</ul>";
+      $(this).prepend(errorList)
+    })
+    .live('ajax:complete', function(e, xhr, status){
+      // TODO hide spinner
+    });
 });
