@@ -4,6 +4,7 @@ class Review < ActiveRecord::Base
   
   validates :resource_id, :presence => true
   validates :reviewer_id, :presence => true
+  validates_uniqueness_of :resource_id, :scope => :reviewer_id, :message => "can only be reviewed once"
   after_save :update_average_rating!
   
   private

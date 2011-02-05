@@ -17,7 +17,7 @@ class ResourcesController < ApplicationController
   def show
     @resource = Resource.find(params[:id])
     @reviews = Review.where(:resource_id => @resource.id).order('created_at DESC').all
-    @new_review = Review.new(:resource_id => @resource.id)
+    @new_review = Review.new(:resource_id => @resource.id) unless Review.exists?(:resource_id => @resource.id, :reviewer_id => current_user.id)
 
     respond_to do |format|
       format.html # show.html.erb
