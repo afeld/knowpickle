@@ -43,33 +43,60 @@ describe ResourcesController do
   end
 
   describe "POST create" do
-    describe "with valid params" do
-      it "assigns a newly created resource as @resource" do
-        Resource.stub(:new).with({'these' => 'params'}) { mock_resource(:save => true) }
-        post :create, :resource => {'these' => 'params'}
-        assigns(:resource).should be(mock_resource)
+    context "when signed in" do
+      before do
+        sign_in User.new
+      end
+      
+      describe "with valid params" do
+        it "assigns a newly created resource as @resource" do
+          Resource.stub(:new).with({'these' => 'params'}) { mock_resource(:save => true) }
+          post :create, :resource => {'these' => 'params'}
+          assigns(:resource).should be(mock_resource)
+        end
+
+        it "redirects to the created resource" do
+          Resource.stub(:new) { mock_resource(:save => true) }
+          post :create, :resource => {}
+          response.should redirect_to(resource_url(mock_resource))
+        end
       end
 
-      it "redirects to the created resource" do
-        Resource.stub(:new) { mock_resource(:save => true) }
-        post :create, :resource => {}
-        response.should redirect_to(resource_url(mock_resource))
+      describe "with invalid params" do
+        it "assigns a newly created but unsaved resource as @resource" do
+          Resource.stub(:new).with({'these' => 'params'}) { mock_resource(:save => false) }
+          post :create, :resource => {'these' => 'params'}
+          assigns(:resource).should be(mock_resource)
+        end
+
+        it "re-renders the 'new' template" do
+          Resource.stub(:new) { mock_resource(:save => false) }
+          post :create, :resource => {}
+          response.should render_template("new")
+        end
       end
     end
 
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved resource as @resource" do
-        Resource.stub(:new).with({'these' => 'params'}) { mock_resource(:save => false) }
-        post :create, :resource => {'these' => 'params'}
-        assigns(:resource).should be(mock_resource)
+    context "when not signed in" do
+      describe "with valid params" do
+        it "redirects to the homepage" do
+          pending
+          # Resource.stub(:new) { mock_resource(:save => true) }.should_receive(:create).never
+          # post :create, :resource => {}
+          # response.should redirect_to(root_path)
+        end
       end
 
-      it "re-renders the 'new' template" do
-        Resource.stub(:new) { mock_resource(:save => false) }
-        post :create, :resource => {}
-        response.should render_template("new")
+      describe "with invalid params" do
+        it "redirects to the homepage" do
+          pending
+          # Resource.stub(:new) { mock_resource(:save => false) }.should_receive(:create).never
+          # post :create, :resource => {}
+          # response.should redirect_to(root_path)
+        end
       end
     end
+    
   end
 
   describe "PUT update" do
