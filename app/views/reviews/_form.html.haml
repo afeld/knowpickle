@@ -1,0 +1,21 @@
+= form_for(@review) do |f|
+  = f.hidden_field :resource_id
+  - if @review.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@review.errors.count, "error")
+        prohibited this review from being saved:
+      %ul
+        - @review.errors.full_messages.each do |msg|
+          %li= msg
+  %h2= @review.resource.name
+  .field
+    = f.label :rating
+    %br/
+    = f.select :rating, 1..5
+  .field
+    = f.label :comment
+    %br/
+    = f.text_area :comment
+  .actions
+    = f.submit

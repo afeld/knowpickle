@@ -1,0 +1,15 @@
+%p
+  %b Reviewer:
+  = @review.reviewer_id
+%p
+  %b Resource:
+  = @review.resource_id
+%p
+  %b Rating:
+  = @review.rating
+%p
+  %b Comment:
+  = @review.comment
+= link_to 'Edit', edit_review_path(@review)
+|
+= link_to 'Back', reviews_path
