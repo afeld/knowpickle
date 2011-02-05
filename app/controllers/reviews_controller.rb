@@ -1,49 +1,5 @@
 class ReviewsController < ApplicationController
   load_and_authorize_resource
-  
-  # GET /reviews
-  # GET /reviews.xml
-  def index
-    @reviews = Review.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @reviews }
-    end
-  end
-
-  # GET /reviews/1
-  # GET /reviews/1.xml
-  def show
-    @review = Review.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @review }
-    end
-  end
-
-  # GET /reviews/new
-  # GET /reviews/new.xml
-  def new
-    begin
-      @resource = Resource.find(params[:resource_id])
-    rescue
-      flash[:alert] = "Invalid resource"
-      redirect_to root_path and return
-    end
-    @review = Review.new(:resource => @resource)
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @review }
-    end
-  end
-
-  # GET /reviews/1/edit
-  def edit
-    @review = Review.find(params[:id])
-  end
 
   # POST /reviews
   # POST /reviews.xml

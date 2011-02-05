@@ -31,6 +31,5 @@
   %p
     %b Average Rating:
     = @resource.average_rating
-    = link_to "Review this!", (new_review_path + "?resource_id=#{@resource.id}")
   = render :partial => 'shared/review_list'
   
