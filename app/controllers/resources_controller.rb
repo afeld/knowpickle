@@ -25,19 +25,6 @@ class ResourcesController < ApplicationController
     end
   end
 
-  # GET /resources/new
-  # GET /resources/new.xml
-  def new
-    opts = {}
-    opts[:topic_id] = params['topic_id'].to_i if params['topic_id']
-    @resource = Resource.new(opts)
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @resource }
-    end
-  end
-
   # GET /resources/1/edit
   def edit
     @resource = Resource.find(params[:id])
