@@ -4,6 +4,7 @@ Welcome to Knowpickle!
   - @resources.each do |resource|
     %li
       = link_to resource, resource
+      (#{ link_to resource.topic })
 %h2 Topics
 %ul
   - @topics.each do |topic|

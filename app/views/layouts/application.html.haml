@@ -12,7 +12,7 @@
         = link_to 'Knowpickle', root_path
       .user-actions
         - if user_signed_in?
-          = link_to current_user, my_account_path
+          = link_to (current_user.display_name.present? ? current_user.display_name : current_user.email), user_path(current_user)
           = link_to 'My account', my_account_path
           = link_to 'Sign out', logout_path
         - else

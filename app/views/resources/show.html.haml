@@ -10,7 +10,7 @@
 - if can? :update, @resource
   = link_to 'Edit', '#', :class => 'toggle-edit'
 %h1
-  = editable_field_if can?(:update, @resource), @resource, :name
+  = link_to editable_field_if(can?(:update, @resource), @resource, :name), @resource.url
 %p
   = link_to editable_field_if(can?(:update, @resource), @resource, :url), @resource.url
 %p

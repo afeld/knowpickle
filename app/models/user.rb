@@ -18,6 +18,6 @@ class User < ActiveRecord::Base
   end
   
   def to_s
-    self.display_name.present? ? self.display_name : self.email
+    self.display_name.present? ? self.display_name : "Anonymous"
   end
 end

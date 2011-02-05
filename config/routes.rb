@@ -4,6 +4,8 @@ Knowpickle::Application.routes.draw do
   resources :resources
 
   resources :topics
+  
+  get '/users/:id', :controller => 'users', :action => 'show', :as => 'user'
 
   devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout'} do
     get 'login' => 'devise/sessions#new'
