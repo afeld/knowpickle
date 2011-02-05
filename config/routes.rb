@@ -1,7 +1,7 @@
 Knowpickle::Application.routes.draw do
   resources :reviews, :only => [:create, :update, :destroy]
 
-  resources :resources
+  resources :resources, :except => [:index, :edit]
 
   resources :topics
   
