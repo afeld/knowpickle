@@ -46,6 +46,7 @@ SimpleNavigation::Configuration.run do |navigation|
       Topic.enabled.each do |topic|
         sub_nav.item "topic-#{topic.try(:id)}", topic.try(:name), url_for(topic), :highlights_on => /topics\/[0-9]+/
       end
+      sub_nav.item :suggest_topic, 'Suggest a new Topic!', new_topic_path
     end
     
     # primary.item :key_1, 'name', url, options

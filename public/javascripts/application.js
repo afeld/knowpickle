@@ -23,6 +23,7 @@ $(function() {
   $('#header #main-navigation > ul').addClass('sf-menu').superfish();
   
   $(".stars-wrapper").stars({inputType: "select"});
+  $('span.review, div.review').stars();
   
   $('.toggle-edit').click(function(){
     toggleEdit();

@@ -1,4 +1,4 @@
-Welcome to Knowpickle!
+Welcome to Knowpickle, the site for learning stuff!
 %h2 Newest Resources
 %ul
   - @resources.each do |resource|
@@ -10,3 +10,5 @@ Welcome to Knowpickle!
   - @topics.each do |topic|
     %li
       = link_to topic.name, topic
+%br
+= link_to 'Suggest a new Topic!', new_topic_path
