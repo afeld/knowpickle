@@ -98,6 +98,17 @@ li.sfHover > a > .sf-sub-indicator {
 }
 /**** End superfish styles ****/
 
+#contents {
+  margin-top: 15px;
+  padding: 0 20px;
+}
+  #contents h1 {
+    position: relative;
+    left: -10px;
+  }
+
+
+
 .toggle-edit.active,
 .edit.active {
   border: 1px solid black;

@@ -13,8 +13,6 @@
       #header
         .logo.navitem
           = link_to image_tag('knowpickle_nav_logo.png', :alt => 'Knowpickle logo'), root_path
-        #main-navigation
-          = render_navigation :expand_all => true
         #user-actions
           %ul
             - if user_signed_in?
@@ -27,6 +25,8 @@
             - else
               %li.navitem
                 = link_to 'Sign in', login_path
+        #main-navigation
+          = render_navigation :expand_all => true
         .clear
       #contents
         %p.notice= notice

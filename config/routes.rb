@@ -4,14 +4,15 @@ Knowpickle::Application.routes.draw do
   resources :resources, :except => [:index, :edit]
 
   resources :topics, :except => [:edit, :update]
-  
-  resources :users, :only => [:show]
 
-  devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout'} do
+  devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout', :sign_up => 'register'} do
     get 'login' => 'devise/sessions#new'
     get 'logout' => 'devise/sessions#destroy'
     get 'my_account' => 'devise/registrations#edit'
+    get 'register' => 'devise/registrations#new'
   end
+  
+  resources :users, :only => [:show]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
