@@ -1,5 +1,7 @@
 - if @user == current_user
   %b Public profile
+  %br
+  = link_to 'Edit my account', my_account_path, :class => 'ui-button'
 %h1
   = @user
   - if @user == current_user

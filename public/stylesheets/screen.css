@@ -118,6 +118,7 @@ li.sfHover > a > .sf-sub-indicator {
 .details .attr {
   margin-bottom: 0.8em;
 }
+.ui-button,
 .ui-button-text {
   color: yellow;
 }
