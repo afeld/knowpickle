@@ -3,6 +3,8 @@ class Resource < ActiveRecord::Base
   belongs_to :topic, :counter_cache => true
   belongs_to :contributor, :class_name => 'User'
   
+  default_scope order('average_rating DESC')
+  
   validates :name, :presence => true
   validates :url, :presence => true, :uniqueness => true # TODO the URL won't be always be present for other resource types
   before_validation :validate_url_and_fetch_title
