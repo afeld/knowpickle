@@ -7,22 +7,25 @@
     = javascript_include_tag 'jquery.jeditable.min'
     = csrf_meta_tag
   %body
-    .wrapper
-      .header
-        = link_to 'Knowpickle', root_path
-      .user-actions
-        - if user_signed_in?
-          = link_to (current_user.display_name.present? ? current_user.display_name : current_user.email), user_path(current_user)
-          = link_to 'My account', my_account_path
-          = link_to 'Sign out', logout_path
-        - else
-          = link_to 'Sign in', login_path
-      .nav-bar
-        %ul
-          %li
-            = link_to 'Topics', topics_path
-            = render :partial => 'shared/topics_tree'
-      .contents
+    #wrapper
+      #header
+        #header-left
+          .logo
+            = link_to 'Knowpickle', root_path
+          #main-navigation
+            = render_navigation :level => 1
+        #header-right
+          #user-actions
+            - if user_signed_in?
+              Welcome
+              = link_to (current_user.display_name.present? ? current_user.display_name : current_user.email), user_path(current_user), :class => 'display-name'
+              !
+              = link_to 'My account', my_account_path
+              = link_to 'Sign out', logout_path
+            - else
+              = link_to 'Sign in', login_path
+        .clear
+      #contents
         %p.notice= notice
         %p.alert= alert
         = yield

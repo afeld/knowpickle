@@ -40,6 +40,14 @@ SimpleNavigation::Configuration.run do |navigation|
     #                            when the item should be highlighted, you can set a regexp which is matched
     #                            against the current URI.
     #
+    
+    primary.item :home, 'Home', root_path
+    primary.item :topics, 'Topics', topics_path, :highlights_on => /topics/ do |sub_nav|
+      Topic.enabled.each do |topic|
+        sub_nav.item :topic, topic.try(:name), url_for(topic), :highlights_on => /topics\/[0-9]+/
+      end
+    end
+    
     # primary.item :key_1, 'name', url, options
     # 
     # # Add an item which has a sub navigation (same params, but with block)
