@@ -20,13 +20,10 @@
   %b Level:
   = editable_field_if can?(:update, @resource), @resource, :level, :type => 'select', :data => levels_json_string, :submit => 'OK'
 %p
-  %b Excerpt:
-  = @resource.excerpt
-%p
   %b Contributor:
   = link_to @resource.contributor, user_path(@resource.contributor)
 .reviews
-  %h3
+  %h2
     Reviews
   %p
     %b Average Rating:
