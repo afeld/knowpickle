@@ -47,8 +47,6 @@ SimpleNavigation::Configuration.run do |navigation|
         sub_nav.item "topic-#{topic.try(:id)}", topic.try(:name), url_for(topic), :highlights_on => /topics\/[0-9]+/
       end
     end
-    primary.item :dummy, 'Dummy', root_path, :class => 'navitem'
-    primary.item :dummy2, 'Dummy Dos', root_path, :class => 'navitem'
     
     # primary.item :key_1, 'name', url, options
     # 
