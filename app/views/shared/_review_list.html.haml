@@ -4,7 +4,8 @@
       = form_for @new_review, :remote => true do |f|
         = f.hidden_field :resource_id
         = f.label :rating
-        = f.select :rating, 1..5
+        .stars-wrapper
+          = f.select :rating, 1..5
         %br
         = f.text_area :comment, :rows => 5, :cols => 50
         %br

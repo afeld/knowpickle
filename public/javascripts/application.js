@@ -22,6 +22,8 @@ function enableEdit() {
 $(function() {
   $('#header #main-navigation > ul').addClass('sf-menu').superfish();
   
+  $(".stars-wrapper").stars({inputType: "select"});
+  
   $('.toggle-edit').click(function(){
     toggleEdit();
   });
