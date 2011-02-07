@@ -115,11 +115,34 @@ li.sfHover > a > .sf-sub-indicator {
 }
 
 
-
-.toggle-edit.active,
-.edit.active {
+.details .attr {
+  margin-bottom: 0.8em;
+}
+.ui-button-text {
+  color: yellow;
+}
+.ui-button.active {
+  background: yellow;
+}
+  .ui-button.active .ui-button-text {
+    color: #333333;
+  }
+.editable {
+  padding: 5px 10px;
+}
+.editable.active {
   border: 1px solid black;
 }
 .errors {
   color: red;
+}
+.alert {
+  background-color: red;
+  color: white;
+  padding: 5px 15px;
+}
+.notice {
+  background-color: green;
+  color: white;
+  padding: 5px 15px;
 }

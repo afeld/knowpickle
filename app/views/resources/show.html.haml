@@ -6,27 +6,28 @@
 %p
   %b Topic:
   = link_to @resource.topic, @resource.topic
-
+%br
 - if can? :update, @resource
-  = link_to 'Edit', '#', :class => 'toggle-edit'
+  = link_to 'Edit', '#', :class => 'toggle-edit ui-button'
 %h1
   = link_to editable_field_if(can?(:update, @resource), @resource, :name), @resource.url
-%p
-  = link_to editable_field_if(can?(:update, @resource), @resource, :url), @resource.url
-%p
-  %b Site:
-  = link_to @resource.site, "http://#{@resource.site}"
-%p
-  %b Level:
-  = editable_field_if can?(:update, @resource), @resource, :level, :type => 'select', :data => levels_json_string, :submit => 'OK'
-%p
-  %b Contributor:
-  = link_to @resource.contributor, user_path(@resource.contributor)
-.reviews
-  %h2
-    Reviews
-  %p
-    %b Average Rating:
-    = @resource.average_rating
-  = render :partial => 'shared/review_list'
+.details
+  .attr
+    = link_to editable_field_if(can?(:update, @resource), @resource, :url), @resource.url
+  .attr
+    %b Site:
+    = link_to @resource.site, "http://#{@resource.site}"
+  .attr
+    %b Level:
+    = editable_field_if can?(:update, @resource), @resource, :level, :type => 'select', :data => levels_json_string, :submit => 'OK'
+  .attr
+    %b Contributor:
+    = link_to @resource.contributor, user_path(@resource.contributor)
+  .reviews
+    %h2
+      Reviews
+    %p
+      %b Average Rating:
+      = @resource.average_rating
+    = render :partial => 'shared/review_list'
   

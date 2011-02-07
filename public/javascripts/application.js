@@ -25,6 +25,8 @@ $(function() {
   $(".stars-wrapper").stars({inputType: "select"});
   $('span.review, div.review').stars();
   
+  $('.ui-button').button();
+  
   $('.toggle-edit').click(function(){
     toggleEdit();
   });

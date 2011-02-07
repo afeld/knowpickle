@@ -20,7 +20,7 @@
         .rating
           Average rating:
           = resource.average_rating
-
-= link_to 'Suggest a new Topic!', new_topic_path
-|
-= link_to 'See all Topics', topics_path
+%br
+%br
+= link_to 'Suggest a new Topic!', new_topic_path, :class => 'ui-button'
+= link_to 'See all Topics', topics_path, :class => 'ui-button'
