@@ -20,6 +20,8 @@ function enableEdit() {
 }
 
 $(function() {
+  $('#header #main-navigation > ul').addClass('sf-menu').superfish();
+  
   $('.toggle-edit').click(function(){
     toggleEdit();
   });

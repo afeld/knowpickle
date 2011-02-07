@@ -41,12 +41,14 @@ SimpleNavigation::Configuration.run do |navigation|
     #                            against the current URI.
     #
     
-    primary.item :home, 'Home', root_path
-    primary.item :topics, 'Topics', topics_path, :highlights_on => /topics/ do |sub_nav|
+    primary.item :home, 'Home', root_path, :class => 'navitem'
+    primary.item :topics, 'Topics', topics_path, :class => 'navitem', :highlights_on => /topics/ do |sub_nav|
       Topic.enabled.each do |topic|
-        sub_nav.item :topic, topic.try(:name), url_for(topic), :highlights_on => /topics\/[0-9]+/
+        sub_nav.item "topic-#{topic.try(:id)}", topic.try(:name), url_for(topic), :highlights_on => /topics\/[0-9]+/
       end
     end
+    primary.item :dummy, 'Dummy', root_path, :class => 'navitem'
+    primary.item :dummy2, 'Dummy Dos', root_path, :class => 'navitem'
     
     # primary.item :key_1, 'name', url, options
     # 

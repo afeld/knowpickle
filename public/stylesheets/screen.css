@@ -6,7 +6,7 @@ ul, li {
   padding: 0;
   list-style-type: none;
 }
-body {
+body, p {
   margin: 0;
 }
 
@@ -19,39 +19,80 @@ body {
 #header {
   background-color: green;
   color: white;
-  line-height: 40px;
 }
-  #header a {
-    text-decoration: none;
-    color: white;
-    padding: 10px;
+  #header * {
+    line-height: 40px;
   }
+  #header .navitem {
+    padding: 0 10px;
+  }
+    #header a {
+      text-decoration: none;
+      color: white;
+    }
   #header a:hover {
     background-color: transparent;
     text-decoration: underline;
   }
-  #header #header-left {
+  #header .logo {
     float: left;
+  }
+    #header .logo a {
+      padding: 0 30px;
+    }
+  #header #main-navigation > ul > li {
     display: inline;
   }
-    #header .logo {
-      padding: 10px 30px;
+    #header #main-navigation li li {
+      background: black;
     }
-    #header #header-left > * {
-      display: inline;
-    }
-    #header #main-navigation * {
-      display: inline;
-    }
-    #header #main-navigation ul li {
-      display: inline;
-    }
-  #header #header-right {
+  #header #user-actions {
     float: right;
-    display: inline;
   }
 
+/**** Start superfish styles ****/
+/*** arrows **/
+.sf-menu a.sf-with-ul {
+	padding-right: 	2.25em;
+	min-width:		1px; /* trigger IE7 hasLayout so spans position accurately */
+}
+.sf-sub-indicator {
+	position:		absolute;
+	display:		block;
+	right:			.75em;
+	top:			1.05em; /* IE6 only */
+	width:			10px;
+	height:			10px;
+	text-indent: 	-999em;
+	overflow:		hidden;
+	background:		url('/images/arrows-ffffff.png') no-repeat -10px -100px; /* 8-bit indexed alpha png. IE6 gets solid image only */
+}
+a > .sf-sub-indicator {  /* give all except IE6 the correct values */
+	top:			.8em;
+	background-position: 0 -100px; /* use translucent arrow for modern browsers*/
+}
+/* apply hovers to modern browsers */
+a:focus > .sf-sub-indicator,
+a:hover > .sf-sub-indicator,
+a:active > .sf-sub-indicator,
+li:hover > a > .sf-sub-indicator,
+li.sfHover > a > .sf-sub-indicator {
+	background-position: -10px -100px; /* arrow hovers for modern browsers*/
+}
 
+/*** shadows for all but IE6 ***/
+.sf-shadow ul {
+	background:	url('/images/shadow.png') no-repeat bottom right;
+	padding: 0 8px 9px 0;
+	-moz-border-radius-bottomleft: 17px;
+	-moz-border-radius-topright: 17px;
+	-webkit-border-top-right-radius: 17px;
+	-webkit-border-bottom-left-radius: 17px;
+}
+.sf-shadow ul.sf-shadow-off {
+	background: transparent;
+}
+/**** End superfish styles ****/
 
 .toggle-edit.active,
 .edit.active {
