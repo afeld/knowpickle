@@ -9,6 +9,9 @@ ul, li {
 body, p {
   margin: 0;
 }
+img {
+  border: none;
+}
 
 
 #wrapper {
@@ -17,18 +20,18 @@ body, p {
   padding-bottom: 50px;
 }
 #header {
-  background-color: green;
+  border-top: 1px solid #528413; /* for the collapsing margin */
+  background-color: #528413;
   color: white;
 }
-  #header * {
-    line-height: 40px;
-  }
   #header .navitem {
     padding: 0 10px;
+    margin-top: 40px;
+    display: inline;
   }
     #header a {
       text-decoration: none;
-      color: white;
+      color: #FFFF00;
     }
   #header a:hover {
     background-color: transparent;
@@ -36,16 +39,18 @@ body, p {
   }
   #header .logo {
     float: left;
+    padding: 0 30px;
+    margin-top: 0;
   }
-    #header .logo a {
-      padding: 0 30px;
-    }
   #header #main-navigation > ul > li {
-    display: inline;
+/*    display: inline;*/
   }
     #header #main-navigation li li {
       background: black;
     }
+      #header #main-navigation li li a {
+        padding: 10px;
+      }
   #header #user-actions {
     float: right;
   }
@@ -60,7 +65,7 @@ body, p {
 	position:		absolute;
 	display:		block;
 	right:			0;
-	top:			1.05em; /* IE6 only */
+	top:			2px; /* IE6 only */
 	width:			10px;
 	height:			10px;
 	text-indent: 	-999em;

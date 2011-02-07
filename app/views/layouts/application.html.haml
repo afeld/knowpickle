@@ -12,17 +12,21 @@
     #wrapper
       #header
         .logo.navitem
-          = link_to 'Knowpickle', root_path
+          = link_to image_tag('knowpickle_nav_logo.png', :alt => 'Knowpickle logo'), root_path
         #main-navigation
           = render_navigation :expand_all => true
         #user-actions
-          - if user_signed_in?
-            %span.navitem
-              Welcome #{link_to_current_user}!
-            = link_to 'My account', my_account_path, :class => 'navitem'
-            = link_to 'Sign out', logout_path, :class => 'navitem'
-          - else
-            = link_to 'Sign in', login_path, :class => 'navitem'
+          %ul
+            - if user_signed_in?
+              %li.navitem
+                Welcome #{link_to_current_user}!
+              %li.navitem
+                = link_to 'My account', my_account_path
+              %li.navitem
+                = link_to 'Sign out', logout_path
+            - else
+              %li.navitem
+                = link_to 'Sign in', login_path
         .clear
       #contents
         %p.notice= notice
