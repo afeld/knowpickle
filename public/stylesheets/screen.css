@@ -14,10 +14,13 @@ img {
 }
 
 
+body {
+  background: #7bad2f;
+}
 #wrapper {
   width: 960px;
   margin: auto;
-  padding-bottom: 50px;
+  background: white;
 }
 #header {
   border-top: 1px solid #528413; /* for the collapsing margin */
@@ -99,13 +102,17 @@ li.sfHover > a > .sf-sub-indicator {
 /**** End superfish styles ****/
 
 #contents {
-  margin-top: 15px;
-  padding: 0 20px;
+  background: white;
+  padding: 20px 20px 30px;
 }
   #contents h1 {
     position: relative;
     left: -10px;
   }
+#footer {
+  text-align: center;
+  padding: 10px 10px 30px;
+}
 
 
 
