@@ -6,7 +6,7 @@
   = @user
   - if @user == current_user
     (You!)
-    = link_to('Set display name', my_account_path) if @user.display_name.empty?
+    = link_to('Set display name', my_account_path) if @user.display_name.blank?
 %h2
   Resources
 %ul
