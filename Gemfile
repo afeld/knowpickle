@@ -8,6 +8,7 @@ gem 'rails', '3.0.3'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 
 gem 'haml', '~> 3.0.25'
+gem 'simple-navigation', '~> 3.1.1'
 gem 'devise', '~> 1.1.5'
 gem 'cancan', '~> 1.5.1'
 gem 'default_value_for', '~> 1.0.1'
