@@ -1,6 +1,9 @@
 %h1
   = @topic.name
-= render :partial => 'resource_form'
+- if user_signed_in?
+  = render :partial => 'resource_form'
+- else
+  #{link_to 'Sign in', login_path} or #{link_to 'register', register_path} to submit a new resource.
 %h2 Resources
 %ul
   - if @topic.resources_count.zero?

@@ -2,6 +2,8 @@ class TopicsController < ApplicationController
   load_resource :find_by => :permalink
   authorize_resource
   
+  before_filter :authenticate_user!, :only => :new
+  
   # GET /topics
   # GET /topics.xml
   def index
