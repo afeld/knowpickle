@@ -1,5 +1,6 @@
 class TopicsController < ApplicationController
-  load_and_authorize_resource
+  load_resource :find_by => :permalink
+  authorize_resource
   
   # GET /topics
   # GET /topics.xml
@@ -12,10 +13,10 @@ class TopicsController < ApplicationController
     end
   end
 
-  # GET /topics/1
-  # GET /topics/1.xml
+  # GET /topics/:permalink
+  # GET /topics/:permalink.xml
   def show
-    @topic = Topic.find(params[:id])
+    @topic = Topic.find_by_permalink!(params[:id])
     @resources = Resource.where(:topic_id => @topic.id).order('average_rating DESC').all
     @resource = Resource.new(:topic => @topic)
 

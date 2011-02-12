@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110203094936) do
+ActiveRecord::Schema.define(:version => 20110212063503) do
 
   create_table "resources", :force => true do |t|
     t.string   "name"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20110203094936) do
     t.datetime "updated_at"
     t.boolean  "enabled"
     t.integer  "resources_count", :default => 0
+    t.string   "permalink"
   end
 
   create_table "users", :force => true do |t|
