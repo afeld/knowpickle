@@ -10,6 +10,8 @@
         = f.text_area :comment, :rows => 5, :cols => 50
         %br
         = f.submit 'Submit review', :class => 'ui-button'
+  - else
+    #{link_to 'Sign in', login_path} or #{link_to 'register', register_path} to review.
   - @reviews.each do |review|
     %hr
     %li
