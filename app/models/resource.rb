@@ -28,7 +28,8 @@ class Resource < ActiveRecord::Base
 
   def validate_url_and_fetch_title
     begin
-      end_response = RestClient.get(self.url) { |response, request, result, &block|
+      resource = RestClient::Resource.new(self.url, :open_timeout => 5, :timeout => 10)
+      end_response = resource.get { |response, request, result, &block|
         case response.code
         when 301, 302, 307
           # it's a redirect, so update the URL
