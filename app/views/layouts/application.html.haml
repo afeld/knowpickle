@@ -37,6 +37,8 @@
             - else
               %li.navitem
                 = link_to 'Sign in', login_path
+                or
+                = link_to 'Sign up', register_path
         #main-navigation
           = render_navigation :expand_all => true
         .clear
