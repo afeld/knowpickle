@@ -47,9 +47,11 @@ group :development do
 end
 
 group :development, :test do
-  gem 'mongrel'
-  gem 'ruby-debug'
-  gem 'rspec', '~> 2.4.0'
+  gem 'ruby-debug19'
+  
+  gem 'rspec', '~> 2.4'
   gem 'rspec-rails'
-  gem 'webrat', '~> 0.7.3'
+  gem 'cucumber', '~> 0.10'
+  gem 'cucumber-rails'
+  gem 'capybara'
 end
