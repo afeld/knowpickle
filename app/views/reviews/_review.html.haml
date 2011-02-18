@@ -1,5 +1,5 @@
 = link_to_if review.reviewer.display_name, review.reviewer, review.reviewer
 %b Rating:
-%span.rating= review.rating
+%span.rating-read-only{:id => "review-#{review.id}"}= review.rating
 %br
 %span.comment= review.comment
