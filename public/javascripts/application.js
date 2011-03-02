@@ -22,8 +22,17 @@ function enableEdit() {
 $(function() {
   $('#header #main-navigation > ul').addClass('sf-menu').superfish();
   
-  $(".stars-wrapper").stars({inputType: "select"});
-  $('span.review, div.review').stars();
+  $('.rating-read-only').each(function(i, elt){
+    var jqElt = $(elt);
+    var val = parseFloat(jqElt.text());
+    jqElt.html('');
+    jqElt.raty({
+      readOnly: true,
+      half: true,
+      path: '/javascripts/jquery-raty/img/',
+      start: val
+    });
+  });
   
   $('.ui-button').button();
   

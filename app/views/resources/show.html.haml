@@ -28,6 +28,6 @@
       Reviews
     %p
       %b Average Rating:
-      = @resource.average_rating
+      %span.rating-read-only= @resource.average_rating
     = render :partial => 'shared/review_list'
   
