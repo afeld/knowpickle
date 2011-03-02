@@ -20,9 +20,10 @@
           = resource.excerpt
         .level
           = resource.level
-        .rating
-          Average rating:
-          = resource.average_rating
+        - if resource.average_rating
+          .rating
+            Average rating:
+            %span.rating-read-only{:id => "review-#{resource.id}"}= resource.average_rating
 %br
 %br
 = link_to 'Suggest a new Topic!', new_topic_path, :class => 'ui-button'
