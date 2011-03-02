@@ -28,7 +28,7 @@ $(function() {
     jqElt.html('');
     jqElt.raty({
       readOnly: true,
-      showHalf: true,
+      half: true,
       path: '/javascripts/jquery-raty/img/',
       start: val
     });

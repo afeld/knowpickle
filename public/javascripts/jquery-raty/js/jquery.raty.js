@@ -6,7 +6,7 @@
  *
  * Licensed under The MIT License
  *
- * @version			1.0.1
+ * @version			1.3.0
  * @since			06.11.2010
  * @author			Washington Botelho dos Santos
  * @documentation	http://wbotelhos.com/raty
@@ -32,11 +32,10 @@
 ;(function($) {
 
 	$.fn.raty = function(settings) {
-		// Public functions need a global variable to use the last element raty. In functions this not happen because it's become a static value as parameter.
 		options = $.extend({}, $.fn.raty.defaults, settings);
 
 		if (this.length == 0) {
-			debug('Invalid selector!');
+			debug('Selector invalid or missing!');
 			return;
 		} else if (this.length > 1) {
 			return this.each(function() {
@@ -54,14 +53,13 @@
 			options.path += '/';
 		}
 
-		// Public functions need a global variable to use the last element raty.
 		$global = $(this);
 
-		// Local variables to keep the current value and not the last one. Why, Mr. Anderson? Why? 
 		var id			= this.attr('id'),
 			start		= 0,
 			starFile	= options.starOn,
-			hint		= '';
+			hint		= '',
+			width		= (options.width) ? options.width : (options.number * options.size + options.number * 4);
 
 		if (id == '') {
 			id = 'raty-' + $global.index();
@@ -89,16 +87,14 @@
 		})
 		.appendTo($global).val(start);
 
-		if (options.showHalf) {
+		if (options.half) {
 			splitStar($global, $('input#' + id + '-score').val(), options);
 		}
 
 		if (!options.readOnly) {
-			if (options.showCancel) {
+			if (options.cancel) {
 				var star	= $('img.' + id),
 					cancel	= '<img src="' + options.path + options.cancelOff + '" alt="x" title="' + options.cancelHint + '" class="button-cancel"/>',
-
-					// Local variables to keep the current value and not the last one in the live functions.
 					opt		= options,
 					$this	= $global;
 
@@ -116,14 +112,14 @@
 					star.mouseout();
 				}).click(function() {
 					$('input#' + id + '-score').val(0);
-					if (opt.onClick) { 
-			          opt.onClick.apply($this, [0]);
+					if (opt.click) { 
+			          opt.click.apply($this, [0]);
 			        }
 				});
 
-				$global.css('width', opt.number * 20 + 20);
+				$global.css('width', width + options.size + 4);
 			} else {
-				$global.css('width', options.number * 20);
+				$global.css('width', width);
 			}
 
 			$global.css('cursor', 'pointer');
@@ -136,36 +132,15 @@
 		return $global;
 	};
 	
-	$.fn.raty.defaults = {
-		cancelHint:		'cancel this rating!',
-		cancelOff:		'cancel-off.png',
-		cancelOn:		'cancel-on.png',
-		cancelPlace:		'left',
-		hintList:		['bad', 'poor', 'regular', 'good', 'gorgeous'],
-		noRatedMsg:		'not rated yet',
-		number:			5,
-		path:			'img/',
-		iconRange:		[],
-		readOnly:		false,
-		scoreName:		'score',
-		showCancel:		false,
-		showHalf:		false,
-		starHalf:		'star-half.png',
-		starOff:		'star-off.png',
-		starOn:			'star-on.png',
-		start:			0,
-		onClick:		null
-	};
-
 	$.fn.raty.click = function(score, id) {
 		var context = getContext(score, id, 'click');
 
 		initialize(context, score, options);
 
-		if (options.onClick) {
-			options.onClick.apply(context, [score]);
+		if (options.click) {
+			options.click.apply(context, [score]);
 		} else {
-			debug('You must add the "onClick: function(score) { }" option.');
+			debug('You must add the "click: function(score) { }" callback.');
 		}
 		return $.fn.raty;
 	};
@@ -203,13 +178,24 @@
 			initialize(context, score.val(), options);
 		});
 
-		$('img.' + id)
-		.mouseenter(function() {
-			fillStar(id, this.alt, options);
+		$('img.' + id).mousemove(function(e) {
+	        fillStar(id, this.alt, options);
+
+			if (options.half) {
+				var percent = parseFloat(((e.pageX - $(this).offset().left) / options.size).toFixed(1));
+				percent = (percent >= 0 && percent < 0.5) ? 0.5 : 1;
+
+				context.data('score', parseFloat(this.alt) + percent - 1);
+
+				splitStar(context, context.data('score'), options);
+			} else {
+				fillStar(id, this.alt, options);
+			}
 		}).click(function() {
-			score.val(this.alt);
-			if (options.onClick) {
-				options.onClick.apply(context, [this.alt]);
+			score.val(options.half ? context.data('score') : this.alt);
+
+			if (options.click) {
+				options.click.apply(context, [score.val()]);
 			}
 		});
 	};
@@ -307,7 +293,7 @@
 
 		fillStar(id, score, options);
 
-		if (options.showHalf) {
+		if (options.half) {
 			splitStar(context, score, options);
 		}
 
@@ -330,5 +316,28 @@
 			$('img#' + id + '-' + rounded).attr('src', options.path + options.starOn);
 		}
 	};
+
+	$.fn.raty.defaults = {
+			cancel:			false,
+			cancelHint:		'cancel this rating!',
+			cancelOff:		'cancel-off.png',
+			cancelOn:		'cancel-on.png',
+			cancelPlace:	'left',
+			click:			null,
+			half:			false,
+			hintList:		['bad', 'poor', 'regular', 'good', 'gorgeous'],
+			noRatedMsg:		'not rated yet',
+			number:			5,
+			path:			'img/',
+			iconRange:		[],
+			readOnly:		false,
+			scoreName:		'score',
+			size:			16,
+			starHalf:		'star-half.png',
+			starOff:		'star-off.png',
+			starOn:			'star-on.png',
+			start:			0,
+			width:			null
+		};
 
 })(jQuery);
