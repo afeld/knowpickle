@@ -41,5 +41,7 @@ module Knowpickle
     
     config.logger = Logger.new(STDOUT)
     config.log_level = :info
+    
+    config.threadsafe!
   end
 end
