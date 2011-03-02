@@ -16,7 +16,6 @@ gem 'devise', '~> 1.1.5'
 gem 'cancan', '~> 1.5.1'
 gem 'default_value_for', '~> 1.0.1'
 gem 'rest-client', '~> 1.6.1'
-gem 'jquery-rails', '~> 0.2.6'
 gem 'jeditable-rails', '~> 0.1'
 gem 'nokogiri', '~> 1.4.4'
 

@@ -72,9 +72,6 @@ GEM
     hpricot (0.8.3)
     i18n (0.5.0)
     jeditable-rails (0.1.1)
-    jquery-rails (0.2.7)
-      rails (~> 3.0)
-      thor (~> 0.14.4)
     json (1.4.6)
     json_pure (1.5.1)
     linecache19 (0.5.11)
@@ -173,7 +170,6 @@ DEPENDENCIES
   haml (~> 3.0.25)
   hpricot
   jeditable-rails (~> 0.1)
-  jquery-rails (~> 0.2.6)
   nokogiri (~> 1.4.4)
   rack-fiber_pool
   rails (= 3.0.5)
