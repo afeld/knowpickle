@@ -1,15 +1,17 @@
 Feature: Manage user_accounts
-  In order to use Knowpick
+  In order to use Knowpickle
   Users need to be able to create accounts and log in
   
   Scenario Outline: Register a new user account
     Given I am not authenticated
-    When I go to register
+    And I am on the home page
+    When I follow "Sign up"
     And I fill in "user_email" with "<email>"
     And I fill in "user_password" with "<password>"
     And I fill in "user_password_confirmation" with "<password>"
     And I press "Register"
-    Then I should see "signed up successfully"
+    Then I should should be on the home page
+    And I should see "signed up successfully"
     And I should see "Welcome <email>"
     
     
