@@ -1,11 +1,23 @@
 require 'spec_helper'
 
 describe "Resources" do
-  describe "GET /resources" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get resources_path
-      response.status.should be(200)
+  it "should be able to view a resource by ID" do
+    @resource = Factory.create(:resource)
+    
+    get "/resources/#{@resource.id}"
+    response.status.should be(200)
+  end
+  
+  it "should show the resource" do
+    @resource = Factory.create(:resource)
+    
+    visit "/resources/#{@resource.id}"
+    page.should have_content(@resource.name)
+  end
+  
+  context "when signed in" do
+    before do
+      
     end
   end
 end
