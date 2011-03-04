@@ -3,9 +3,9 @@
 - if user_signed_in?
   = render :partial => 'resource_form'
 - else
-  #{link_to 'Sign in', login_path} or #{link_to 'register', register_path} to submit a new resource.
-%h2 Resources
-%ul
+  = link_to 'Submit a resource', register_path, :class => 'ui-button'
+%h2 Resources (#{@topic.resources_count})
+%ul#resource-list
   - if @topic.resources_count.zero?
     None here.
     = link_to 'Add some!', new_resource_path + "?topic_id=#{@topic.id}"
@@ -13,6 +13,7 @@
     - @resources.each do |resource|
       %li
         %h3
+          = image_tag "http://#{resource.site}/favicon.ico", :alt => '', :class => 'favicon'
           = link_to resource, resource
         .site
           = link_to resource.site, "http://#{resource.site}"
@@ -24,6 +25,7 @@
           .rating
             Average rating:
             %span.rating-read-only{:id => "review-#{resource.id}"}= resource.average_rating
+            (#{resource.reviews.size})
 %br
 %br
 = link_to 'Suggest a new Topic!', new_topic_path, :class => 'ui-button'

@@ -40,6 +40,11 @@ $(function() {
     toggleEdit();
   });
   
+  $('img.favicon').error(function(){
+    // hide missing favicons
+    $(this).hide();
+  });
+  
   $("form.new_review[data-remote='true']")
     .live('ajax:beforeSend', function(e, xhr, settings){
       // TODO show a spinner

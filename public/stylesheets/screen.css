@@ -112,6 +112,13 @@ li.sfHover > a > .sf-sub-indicator {
     position: relative;
     left: -10px;
   }
+  #contents ul li {
+    border-top: 1px solid gray;
+    padding: 10px 0;
+  }
+  #contents ul li:first-child {
+    border-top: none;
+  }
 #footer {
   text-align: center;
   padding: 10px 10px 30px;

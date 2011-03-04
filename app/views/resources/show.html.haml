@@ -10,6 +10,7 @@
 - if can? :update, @resource
   = link_to 'Edit', '#', :class => 'toggle-edit ui-button'
 %h1
+  = image_tag "http://#{@resource.site}/favicon.ico", :alt => '', :class => 'favicon'
   = link_to editable_field_if(can?(:update, @resource), @resource, :name), @resource.url
 .details
   .attr
@@ -29,5 +30,6 @@
     %p
       %b Average Rating:
       %span.rating-read-only= @resource.average_rating
+      (#{@resource.reviews.size})
     = render :partial => 'shared/review_list'
   

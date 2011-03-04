@@ -11,8 +11,8 @@
         %br
         = f.submit 'Submit review', :class => 'ui-button'
   - elsif !user_signed_in?
-    #{link_to 'Sign in', login_path} or #{link_to 'register', register_path} to review.
+    = link_to 'Review me', register_path, :class => 'ui-button'
   - @reviews.each do |review|
-    %hr
-    %li
-      = render review
+    - unless review.comment.blank?
+      %li
+        = render review
