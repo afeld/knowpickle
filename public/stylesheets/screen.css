@@ -8,10 +8,14 @@ ul, li {
 
 
 body {
-  background: #7bad2f;
+/*  background: #7bad2f;*/
+}
+#wrapper {
+  width: 1000px;
+  margin: auto;
+  background-color: white;
 }
 #header {
-  border-top: 1px solid #528413; /* for the collapsing margin */
   background-color: #528413;
   color: white;
 }
@@ -87,16 +91,17 @@ li.sfHover > a > .sf-sub-indicator {
 /**** End superfish styles ****/
 
 #contents {
-  background: white;
+  padding: 15px 0;
 }
   #contents ul li {
-    border-top: 1px solid gray;
+    border-top: 1px dashed gray;
     padding: 10px 0;
   }
   #contents ul li:first-child {
     border-top: none;
   }
 #footer {
+  background: #7bad2f;
   text-align: center;
   padding-top: 10px;
   padding-bottom: 30px;

@@ -27,8 +27,8 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
   %body
-    #wrapper
-      #header.container_12
+    #header
+      .container_12
         .logo.navitem.grid_2
           = link_to image_tag('knowpickle_nav_logo.png', :alt => 'Knowpickle logo'), root_path
         #main-navigation.grid_8
@@ -48,6 +48,7 @@
                 or
                 = link_to 'Sign up', register_path
         .clear
+    #wrapper
       #contents.container_12
         - if notice
           %p.notice= notice
