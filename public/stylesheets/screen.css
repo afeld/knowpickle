@@ -2,18 +2,8 @@
   clear: both;
 }
 ul, li {
-  margin: 0;
-  padding: 0;
   list-style-type: none;
-}
-body, p {
   margin: 0;
-}
-img {
-  border: none;
-}
-h1 {
-  font-size: 1.5em;
 }
 
 
