@@ -1,14 +1,19 @@
-Welcome to Knowpickle, the site for learning stuff! Any feedback would be much appreciated - submit it #{link_to 'here', 'https://github.com/afeld/knowpickle/issues'}.
-%h2 Newest Resources
-%ul
-  - @resources.each do |resource|
-    %li
-      = link_to resource, resource
-      (#{ link_to resource.topic })
-%h2 Topics
-%ul
-  - @topics.each do |topic|
-    %li
-      = link_to topic.name, topic
-%br
-= link_to 'Suggest a new Topic!', new_topic_path, :class => 'ui-button'
+#column1.grid_8
+  .announce
+    Welcome to Knowpickle, the site for learning stuff! Any feedback would be much appreciated - submit it #{link_to 'here', 'https://github.com/afeld/knowpickle/issues'}.
+  %h2 Topics
+  %ul
+    - @topics.each do |topic|
+      %li
+        = link_to topic.name, topic
+  %br
+  = link_to 'Suggest a new Topic!', new_topic_path, :class => 'ui-button'
+#column2.grid_4
+  %h2 Newest Resources
+  %ul
+    - @resources.each do |resource|
+      %li
+        = link_to resource, resource
+        (#{ link_to resource.topic })
+
+.clear

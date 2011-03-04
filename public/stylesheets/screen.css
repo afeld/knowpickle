@@ -10,19 +10,12 @@ ul, li {
 body {
   background: #7bad2f;
 }
-#wrapper {
-  width: 960px;
-  margin: auto;
-  background: white;
-}
 #header {
   border-top: 1px solid #528413; /* for the collapsing margin */
   background-color: #528413;
   color: white;
 }
   #header .navitem {
-    padding: 0 10px;
-    margin-top: 40px;
     display: inline;
   }
     #header a {
@@ -33,43 +26,42 @@ body {
     background-color: transparent;
     text-decoration: underline;
   }
-  #header .logo {
-    float: left;
-    padding: 0 30px;
-    margin-top: 0;
-  }
   #header #main-navigation > ul > li {
-/*    display: inline;*/
+/*    margin-top: 30px;*/
   }
-    #header #main-navigation li li {
-      background: #43611b;
+    #header #main-navigation > ul > li > a {
+      padding: 40px 14px 10px;
     }
-      #header #main-navigation li li a {
-        padding: 10px;
+      .sf-menu li:hover ul,
+      .sf-menu li.sfHover ul {
+        top: 60px;
       }
-  #header #user-actions {
-    float: right;
-  }
+      #header #main-navigation li li {
+        background: #43611b;
+      }
+        #header #main-navigation li li a {
+          padding: 10px;
+        }
 
 /**** Start superfish styles ****/
 /*** arrows **/
 .sf-menu a.sf-with-ul {
-	padding-right: 	1.25em;
-	min-width:		1px; /* trigger IE7 hasLayout so spans position accurately */
+  padding-right: 	1.25em;
+  min-width:		1px; /* trigger IE7 hasLayout so spans position accurately */
 }
 .sf-sub-indicator {
-	position:		absolute;
-	display:		block;
-	right:			0;
-	top:			2px; /* IE6 only */
-	width:			10px;
-	height:			10px;
-	text-indent: 	-999em;
-	overflow:		hidden;
-	background:		url('/images/arrows-ffffff.png') no-repeat -10px -100px; /* 8-bit indexed alpha png. IE6 gets solid image only */
+  position:		absolute;
+  display:		block;
+  right:			0;
+  bottom:		  12px; /* IE6 only */
+  width:			10px;
+  height:			10px;
+  text-indent: 	-999em;
+  overflow:		hidden;
+  background:		url('/images/arrows-ffffff.png') no-repeat -10px -100px; /* 8-bit indexed alpha png. IE6 gets solid image only */
 }
 a > .sf-sub-indicator {  /* give all except IE6 the correct values */
-	background-position: 0 -100px; /* use translucent arrow for modern browsers*/
+  background-position: 0 -100px; /* use translucent arrow for modern browsers*/
 }
 /* apply hovers to modern browsers */
 a:focus > .sf-sub-indicator,
@@ -77,31 +69,26 @@ a:hover > .sf-sub-indicator,
 a:active > .sf-sub-indicator,
 li:hover > a > .sf-sub-indicator,
 li.sfHover > a > .sf-sub-indicator {
-	background-position: -10px -100px; /* arrow hovers for modern browsers*/
+  background-position: -10px -100px; /* arrow hovers for modern browsers*/
 }
 
 /*** shadows for all but IE6 ***/
 .sf-shadow ul {
-	background:	url('/images/shadow.png') no-repeat bottom right;
-	padding: 0 8px 9px 0;
-	-moz-border-radius-bottomleft: 17px;
-	-moz-border-radius-topright: 17px;
-	-webkit-border-top-right-radius: 17px;
-	-webkit-border-bottom-left-radius: 17px;
+  background:	url('/images/shadow.png') no-repeat bottom right;
+  padding: 0 8px 9px 0;
+  -moz-border-radius-bottomleft: 17px;
+  -moz-border-radius-topright: 17px;
+  -webkit-border-top-right-radius: 17px;
+  -webkit-border-bottom-left-radius: 17px;
 }
 .sf-shadow ul.sf-shadow-off {
-	background: transparent;
+  background: transparent;
 }
 /**** End superfish styles ****/
 
 #contents {
   background: white;
-  padding: 20px 20px 30px;
 }
-  #contents h1 {
-    position: relative;
-    left: -10px;
-  }
   #contents ul li {
     border-top: 1px solid gray;
     padding: 10px 0;
@@ -111,7 +98,8 @@ li.sfHover > a > .sf-sub-indicator {
   }
 #footer {
   text-align: center;
-  padding: 10px 10px 30px;
+  padding-top: 10px;
+  padding-bottom: 30px;
 }
 
 

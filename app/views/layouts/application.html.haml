@@ -28,10 +28,12 @@
       })();
   %body
     #wrapper
-      #header
-        .logo.navitem
+      #header.container_12
+        .logo.navitem.grid_2
           = link_to image_tag('knowpickle_nav_logo.png', :alt => 'Knowpickle logo'), root_path
-        #user-actions
+        #main-navigation.grid_8
+          = render_navigation :expand_all => true
+        #user-actions.grid_2
           %ul
             - if user_signed_in?
               %li.navitem
@@ -45,14 +47,13 @@
                 = link_to 'Sign in', login_path
                 or
                 = link_to 'Sign up', register_path
-        #main-navigation
-          = render_navigation :expand_all => true
         .clear
-      #contents
+      #contents.container_12
         - if notice
           %p.notice= notice
         - if alert
           %p.alert= alert
         = yield
+      .clear
     #footer
       This site is open source.  Fork and contribute #{link_to 'here', 'https://github.com/afeld/knowpickle'}.
