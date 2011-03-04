@@ -5,19 +5,26 @@ ul, li {
   list-style-type: none;
   margin: 0;
 }
+em {
+  font-style: normal;
+  color: #4CA20B;
+}
+.ui-button {
+  
+}
 
 
 body {
-/*  background: #7bad2f;*/
+  background: #7bad2f;
 }
 #wrapper {
-  width: 1000px;
-  margin: auto;
   background-color: white;
 }
 #header {
   background-color: #528413;
+  padding: 6px 0;
   color: white;
+  border-bottom: 2px solid #7bad2f;
 }
   #header .navitem {
     display: inline;
@@ -101,7 +108,7 @@ li.sfHover > a > .sf-sub-indicator {
     border-top: none;
   }
 #footer {
-  background: #7bad2f;
+  border-top: 3px solid #528413;
   text-align: center;
   padding-top: 10px;
   padding-bottom: 30px;
@@ -111,16 +118,17 @@ li.sfHover > a > .sf-sub-indicator {
 .details .attr {
   margin-bottom: 0.8em;
 }
-.ui-button,
-.ui-button-text {
+.ui-button {
   color: yellow;
+  padding: 8px 10px;
+  text-decoration: none;
 }
-.ui-button.active {
-  background: yellow;
-}
-  .ui-button.active .ui-button-text {
-    color: #333333;
+  .ui-button.active {
+    background: yellow;
   }
+    .ui-button.active .ui-button-text {
+      color: #333333;
+    }
 .editable {
   padding: 5px 10px;
 }

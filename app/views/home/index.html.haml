@@ -1,14 +1,17 @@
 #column1.grid_8
   #announce.alpha.grid_8
-    Welcome to Knowpickle, the site for learning stuff! All feedback is welcome - click #{link_to 'here', 'https://github.com/afeld/knowpickle/issues'}.
+    %h1
+      Welcome to <em>knowpickle</em>, the site for learning stuff.
+    %p
+      All feedback is welcome - click #{link_to 'here', 'https://github.com/afeld/knowpickle/issues'}.
   #topics-grid.alpha.grid_8
-    %h2 Topics
+    %h2 Choose a topic
     %ul
       - @topics.each do |topic|
         %li
           = link_to topic.name, topic
     %br
-    = link_to 'Suggest a new Topic!', new_topic_path, :class => 'ui-button'
+    = link_to 'Suggest a topic', new_topic_path, :class => 'ui-button'
 #column2.grid_4
   %h2 Newest Resources
   %ul
