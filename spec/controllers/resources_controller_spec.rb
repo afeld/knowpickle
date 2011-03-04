@@ -45,7 +45,7 @@ describe ResourcesController do
   describe "POST create" do
     context "when signed in" do
       before do
-        sign_in User.new
+        sign_in Factory.create(:user)
       end
       
       describe "with valid params" do
