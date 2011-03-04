@@ -9,9 +9,6 @@ em {
   font-style: normal;
   color: #4CA20B;
 }
-.ui-button {
-  
-}
 
 
 body {
@@ -100,11 +97,11 @@ li.sfHover > a > .sf-sub-indicator {
 #contents {
   padding: 15px 0;
 }
-  #contents ul li {
+  #contents ul.list li {
     border-top: 1px dashed gray;
     padding: 10px 0;
   }
-  #contents ul li:first-child {
+  #contents ul.list li:first-child {
     border-top: none;
   }
 #footer {
@@ -122,6 +119,7 @@ li.sfHover > a > .sf-sub-indicator {
   color: yellow;
   padding: 8px 10px;
   text-decoration: none;
+  text-align: center;
 }
   .ui-button.active {
     background: yellow;

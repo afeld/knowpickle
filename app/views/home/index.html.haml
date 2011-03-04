@@ -5,16 +5,16 @@
     %p
       All feedback is welcome - click #{link_to 'here', 'https://github.com/afeld/knowpickle/issues'}.
   #topics-grid.alpha.grid_8
-    %h2 Choose a topic
-    %ul
-      - @topics.each do |topic|
-        %li
+    %h2.alpha.grid_6 Choose a topic
+    %ul.alpha.grid_8
+      - @topics.each_with_index do |topic, i|
+        %li.grid_2{:class => grid_class(i)}
           = link_to topic.name, topic
-    %br
-    = link_to 'Suggest a topic', new_topic_path, :class => 'ui-button'
+      %li.grid_2{:class => grid_class(@topics.size)}
+        = link_to 'Suggest a topic', new_topic_path, :class => 'ui-button'
 #column2.grid_4
   %h2 Newest Resources
-  %ul
+  %ul.list
     - @resources.each do |resource|
       %li
         = link_to resource, resource
