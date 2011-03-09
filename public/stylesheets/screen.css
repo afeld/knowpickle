@@ -111,6 +111,15 @@ li.sfHover > a > .sf-sub-indicator {
   padding-bottom: 30px;
 }
 
+.topics-grid {
+  
+}
+  .topic-grid-cell {
+    padding: 10px 0;
+    margin: 10px 0;
+    text-align: center;
+  }
+
 
 .details .attr {
   margin-bottom: 0.8em;
