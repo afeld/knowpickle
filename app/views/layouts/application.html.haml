@@ -8,7 +8,7 @@
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
     = stylesheet_link_tag 'superfish'
     = stylesheet_link_tag 'le-frog/jquery-ui-1.8.10.custom'
-    = stylesheet_link_tag 'screen'
+    / = stylesheet_link_tag 'screen'
     = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js'
     = javascript_include_tag :defaults
     = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js'
@@ -27,10 +27,10 @@
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
-  %body
-    #header
-      .container_12
-        .logo.navitem.grid_2
+  %body.bp.two-col
+    #container
+      #header
+        .logo.navitem
           = link_to image_tag('knowpickle_nav_logo.png', :alt => 'Knowpickle logo'), root_path
         #main-navigation.grid_8
           = render_navigation :expand_all => true
@@ -49,13 +49,13 @@
                 or
                 = link_to 'Sign up', register_path
         .clear
-    #wrapper
-      #contents.container_12
+      #content
         - if notice
           %p.notice= notice
         - if alert
           %p.alert= alert
         = yield
-      .clear
-    #footer
-      This site is open source.  Fork and contribute #{link_to 'here', 'https://github.com/afeld/knowpickle'}.
+      #sidebar
+        = yield :sidebar
+      #footer
+        This site is open source.  Fork and contribute #{link_to 'here', 'https://github.com/afeld/knowpickle'}.
