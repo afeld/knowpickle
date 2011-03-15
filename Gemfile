@@ -11,6 +11,8 @@ gem 'thin'
 gem 'rack-fiber_pool', :require => 'rack/fiber_pool'
 
 gem 'haml', '~> 3.0.25'
+gem 'compass', '~> 0.10.6'
+
 gem 'simple-navigation', '~> 3.1.1'
 gem 'devise', '~> 1.1.5'
 gem 'cancan', '~> 1.5.1'
@@ -58,4 +60,8 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_girl', '>= 2.0.0.beta2', '< 3.0'
   gem 'factory_girl_rails', '>= 1.1.beta1'
+end
+
+group :production do
+  gem 'hassle', '~> 0.0.1'
 end
