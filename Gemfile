@@ -1,16 +1,11 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.5'
+gem 'rails', '3.0.10'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
-
-gem 'thin'
-gem 'rack-fiber_pool', :require => 'rack/fiber_pool'
-
-gem 'haml', '~> 3.0.25'
+gem 'haml', '~> 3.0'
 gem 'simple-navigation', '~> 3.1.1'
 gem 'devise', '~> 1.1.5'
 gem 'cancan', '~> 1.5.1'
@@ -46,9 +41,13 @@ group :development do
   # for Devise generator
   gem 'hpricot'
   gem 'ruby_parser'
+  
+  gem 'thin'
+  gem 'rack-fiber_pool', :require => 'rack/fiber_pool'
 end
 
 group :development, :test do
+  gem 'sqlite3-ruby', :require => 'sqlite3'
   gem 'ruby-debug19'
   
   gem 'rspec', '~> 2.4'
