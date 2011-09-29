@@ -6,13 +6,13 @@ gem 'rails', '3.0.10'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'haml', '~> 3.0'
-gem 'simple-navigation', '~> 3.1.1'
-gem 'devise', '~> 1.1.5'
-gem 'cancan', '~> 1.5.1'
-gem 'default_value_for', '~> 1.0.1'
-gem 'rest-client', '~> 1.6.1'
+gem 'simple-navigation', '~> 3.1'
+gem 'devise', '~> 1.1'
+gem 'cancan', '~> 1.5'
+gem 'default_value_for', '~> 1.0'
+gem 'rest-client', '~> 1.6'
 gem 'jeditable-rails', '~> 0.1'
-gem 'nokogiri', '~> 1.4.4'
+gem 'nokogiri', '~> 1.4'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -41,9 +41,6 @@ group :development do
   # for Devise generator
   gem 'hpricot'
   gem 'ruby_parser'
-  
-  gem 'thin'
-  gem 'rack-fiber_pool', :require => 'rack/fiber_pool'
 end
 
 group :development, :test do
