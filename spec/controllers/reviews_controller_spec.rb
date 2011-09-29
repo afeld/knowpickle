@@ -10,38 +10,6 @@ describe ReviewsController do
     @mock_review ||= mock_model(Review, stubs).as_null_object
   end
 
-  describe "GET index" do
-    it "assigns all reviews as @reviews" do
-      Review.stub(:all) { [mock_review] }
-      get :index
-      assigns(:reviews).should eq([mock_review])
-    end
-  end
-
-  describe "GET show" do
-    it "assigns the requested review as @review" do
-      Review.stub(:find).with("37") { mock_review }
-      get :show, :id => "37"
-      assigns(:review).should be(mock_review)
-    end
-  end
-
-  describe "GET new" do
-    it "assigns a new review as @review" do
-      Review.stub(:new) { mock_review }
-      get :new
-      assigns(:review).should be(mock_review)
-    end
-  end
-
-  describe "GET edit" do
-    it "assigns the requested review as @review" do
-      Review.stub(:find).with("37") { mock_review }
-      get :edit, :id => "37"
-      assigns(:review).should be(mock_review)
-    end
-  end
-
   describe "POST create" do
     describe "with valid params" do
       it "assigns a newly created review as @review" do

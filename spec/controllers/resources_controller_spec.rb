@@ -10,14 +10,6 @@ describe ResourcesController do
     @mock_resource ||= mock_model(Resource, stubs).as_null_object
   end
 
-  describe "GET index" do
-    it "assigns all resources as @resources" do
-      Resource.stub(:all) { [mock_resource] }
-      get :index
-      assigns(:resources).should eq([mock_resource])
-    end
-  end
-
   describe "GET show" do
     it "assigns the requested resource as @resource" do
       Resource.stub(:find).with("37") { mock_resource }
@@ -27,18 +19,16 @@ describe ResourcesController do
   end
 
   describe "GET new" do
-    it "assigns a new resource as @resource" do
-      Resource.stub(:new) { mock_resource }
-      get :new
-      assigns(:resource).should be(mock_resource)
+    context "when not logged in" do
+      it "should redirect to sign in"
     end
-  end
-
-  describe "GET edit" do
-    it "assigns the requested resource as @resource" do
-      Resource.stub(:find).with("37") { mock_resource }
-      get :edit, :id => "37"
-      assigns(:resource).should be(mock_resource)
+    
+    context "when logged in" do
+      it "assigns a new resource as @resource" do
+        Resource.stub(:new) { mock_resource }
+        get :new
+        assigns(:resource).should be(mock_resource)
+      end
     end
   end
 

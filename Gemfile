@@ -52,6 +52,6 @@ group :development, :test do
   gem 'cucumber', '~> 0.10'
   gem 'cucumber-rails'
   gem 'capybara'
-  gem 'factory_girl', '>= 2.0.0.beta2', '< 3.0'
-  gem 'factory_girl_rails', '>= 1.1.beta1'
+  gem 'factory_girl', '~> 2.1'
+  gem 'factory_girl_rails'
 end

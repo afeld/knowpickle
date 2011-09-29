@@ -168,8 +168,8 @@ DEPENDENCIES
   cucumber-rails
   default_value_for (~> 1.0)
   devise (~> 1.1)
-  factory_girl (>= 2.0.0.beta2, < 3.0)
-  factory_girl_rails (>= 1.1.beta1)
+  factory_girl (~> 2.1)
+  factory_girl_rails
   haml (~> 3.0)
   hpricot
   jeditable-rails (~> 0.1)

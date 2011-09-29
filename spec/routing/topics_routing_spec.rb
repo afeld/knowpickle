@@ -15,16 +15,8 @@ describe TopicsController do
       { :get => "/topics/1" }.should route_to(:controller => "topics", :action => "show", :id => "1")
     end
 
-    it "recognizes and generates #edit" do
-      { :get => "/topics/1/edit" }.should route_to(:controller => "topics", :action => "edit", :id => "1")
-    end
-
     it "recognizes and generates #create" do
       { :post => "/topics" }.should route_to(:controller => "topics", :action => "create")
-    end
-
-    it "recognizes and generates #update" do
-      { :put => "/topics/1" }.should route_to(:controller => "topics", :action => "update", :id => "1")
     end
 
     it "recognizes and generates #destroy" do
